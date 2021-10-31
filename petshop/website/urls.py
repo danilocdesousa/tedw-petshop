@@ -1,6 +1,6 @@
 # Importação das funções definidas no arquivo views.py.
 from django.urls import path
-from website.views import IndexTemplateView, ClientesListView, ClientesUpdateView, ClientesDeleteView
+from website.views import IndexTemplateView, ClientesListView, ClientesUpdateView, ClientesDeleteView, ClientesCreateView
 
 app_name = 'website'
 
@@ -8,6 +8,9 @@ app_name = 'website'
 urlpatterns = [
     # GET /
     path('', IndexTemplateView.as_view(), name="index"),
+    
+    # GET /clientes/cadastrar
+    path('clientes/cadastrar', ClientesCreateView.as_view(), name="cadastra_clientes"),
     
     # GET /clientes
     path('clientes/', ClientesListView.as_view(), name="lista_clientes"),
