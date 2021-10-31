@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+# Utilizando a TemplateView para rederização da página.
+class IndexTemplateView(TemplateView):
+    template_name = "website/index.html"
