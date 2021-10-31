@@ -1,5 +1,12 @@
-from django.views.generic import TemplateView
+from registration.models import Clientes
+from django.views.generic import TemplateView, ListView
 
 # Utilizando a TemplateView para rederização da página.
 class IndexTemplateView(TemplateView):
     template_name = "website/index.html"
+    
+# Utilizando a ListView para a listagem de clientes.
+class ClientesListView(ListView):
+    template_name = "website/lista.html"
+    model = Clientes
+    context_object_name = 'clientes'
