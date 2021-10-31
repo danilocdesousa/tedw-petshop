@@ -1,6 +1,7 @@
-from registration.models import Clientes
-from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
+from petshop.models import Clientes
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
+from website.forms import InsereClientesForm
 
 # Utilizando a TemplateView para rederização da página.
 class IndexTemplateView(TemplateView):
@@ -11,6 +12,14 @@ class ClientesListView(ListView):
     template_name = "website/lista.html"
     model = Clientes
     context_object_name = 'clientes'
+    
+# Utilizando a CreateView para adicionar um novo cliente.
+class ClientesCreateView (CreateView):
+    template_name = "website/cria.html"
+    model = Clientes
+    form_class = InsereClientesForm
+    # O método reverse_lazy() vai traduzir a View em URL. Após adicionar um cliente, haverá um redirecionamento para a página de listagem atualizada.
+    success_url = reverse_lazy("website:lista_clientes")
     
 # Utilizando a UpdateView para a atualização de clientes.
 class ClientesUpdateView(UpdateView):
