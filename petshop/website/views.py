@@ -1,7 +1,6 @@
 from registration.models import Clientes
-from django.views.generic import TemplateView, ListView, UpdateView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-
 
 # Utilizando a TemplateView para rederização da página.
 class IndexTemplateView(TemplateView):
@@ -18,5 +17,12 @@ class ClientesUpdateView(UpdateView):
     template_name = "website/atualiza.html"
     model = Clientes
     fields = '__all__' # fields = ['nome', 'cpf', 'telefone', 'email', 'endereco']
+    context_object_name = 'clientes'
+    success_url = reverse_lazy("website:lista_clientes")
+
+# Utilizando a DeleteView para deletar um cliente.
+class ClientesDeleteView(DeleteView):
+    template_name = "website/exclui.html"
+    model = Clientes
     context_object_name = 'clientes'
     success_url = reverse_lazy("website:lista_clientes")
