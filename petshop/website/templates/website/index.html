@@ -1,1 +1,52 @@
-<h1>Tela inicial</h1>
+<!-- Estender do template base -->
+{% extends "website/_layouts/base.html" %}
+
+<!-- Bloco que define o título da página inicial -->
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="card bg-light border-0 mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Novo Cliente</h5>
+                    <p class="card-text mb-4">Acesse o formulário para fazer o cadastro de um novo cliente.</p>
+                    <a class="btn btn-secondary" href="{% url 'website:cadastra_clientes' %}"> <i
+                            class="fas fa-plus me-2"></i>NOVO</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light border-0 mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Novo Pet</h5>
+                    <p class="card-text mb-4">Adicionar novo animal de estimação para um cliente existente.</p>
+                    <a class="btn btn-secondary" href="{% url 'website:cadastra_clientes' %}"><i
+                        class="fas fa-plus me-2"></i>NOVO</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light border-0 mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Novo Serviço</h5>
+                    <p class="card-text mb-4">Acesse o formulário para registrar um novo serviço que será oferecido.</p>
+                    <a class="btn btn-secondary" href="{% url 'website:cadastra_clientes' %}"> <i
+                            class="fas fa-plus me-2"></i>NOVO</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card bg-light border-0 mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Nova Venda</h5>
+                    <p class="card-text mb-4">Registrar uma venda para um cliente previamente registrado.</p>
+                    <a class="btn btn-secondary" href="{% url 'website:cadastra_clientes' %}"><i
+                        class="fas fa-plus me-2"></i>NOVO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
