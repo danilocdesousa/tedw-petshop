@@ -32,3 +32,6 @@ class Clientes(models.Model):
         blank=False
     )
 
+# Mostrar o nome do registro no Django administration em vez de mostrar o ID.
+    def __str__(self):
+        return self.nome
