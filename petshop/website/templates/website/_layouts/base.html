@@ -1,12 +1,56 @@
 <!DOCTYPE html>
+{% load static %}
+{# O template base.html contém o código HTML que irá se repetir em todas as páginas #}
+
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Petshop</title>
+    <script src="https://kit.fontawesome.com/2f25f30753.js" crossorigin="anonymous"></script>
+    <title>
+        {% block title %}Petshop{% endblock %}
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
+
+    {% block styles %}
+    {% endblock %}
 </head>
-<body>
-    
+
+<body class="bg-secondary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-505">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'website:index' %}">PETSHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="{% url 'website:index' %}">Início</a>
+                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Clientes</a>
+                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Pets</a>
+                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Serviços</a>
+                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Vendas</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Scripts -->
+    <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'website/js/jquery.min.js' %}"></script>
+    <script src="{% static 'website/js/scripts.js' %}"></script>
+
+    {% block scripts %}
+    {% endblock %}
 </body>
+
 </html>
