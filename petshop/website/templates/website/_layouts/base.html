@@ -31,11 +31,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'website:index' %}">Início</a>
-                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Clientes</a>
-                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Pets</a>
-                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Serviços</a>
-                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Vendas</a>
+                    <a class="nav-link" aria-current="page" href="{% url 'website:index' %}">Início</a>
+                    <a class="nav-link" href="{% url 'website:lista_clientes' %}">Clientes</a>
+                    <a class="nav-link" href="{% url 'website:lista_clientes' %}">Pets</a>
+                    <a class="nav-link" href="{% url 'website:lista_clientes' %}">Serviços</a>
+                    <a class="nav-link" href="{% url 'website:lista_clientes' %}">Vendas</a>
                 </div>
             </div>
         </div>
@@ -43,6 +43,20 @@
 
     {% block content %}
     {% endblock %}
+
+    <!--
+    <footer class="bg-light text-end text-lg-start fixed-bottom">
+        <div class="text-end p-2" style="background-color: rgba(0, 0, 0, 0.1);">
+            <div onchange="color(this.value)">
+                <span>CORES</span>
+                <a href="#" id="interruptor"><i class="link-light fas fa-circle"></i></a>
+                <a href="#"><i class="link-secondary fas fa-circle"></i></a>
+                <a href="#"><i class="link-dark fas fa-circle"></i></a>
+                <a href="#"><i class="me-2 link-success fas fa-circle"></i></a>
+            </div>
+        </div>
+    </footer>
+    -->
 
     <!-- Scripts -->
     <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
