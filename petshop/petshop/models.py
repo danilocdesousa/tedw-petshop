@@ -32,6 +32,20 @@ class Clientes(models.Model):
         blank=False
     )
 
+class Services(models.Model):
+    nome = models.CharField(
+        max_length=255,
+        null=False,
+        blank=False
+    )
+
+    preco = models.DecimalField(
+        max_digits=9,
+        decimal_places=2,
+        null=False,
+        blank=False
+    )
+
 # Mostrar o nome do registro no Django administration em vez de mostrar o ID.
     def __str__(self):
         return self.nome
