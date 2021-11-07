@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'petshop',
     'website',
+    'services',
     'widget_tweaks',
 ]
 
