@@ -1,12 +1,12 @@
 from petshop.models import Services
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-from website.forms import InsereServicesForm
+from services.forms import InsereServicesForm
 
 # Utilizando a CreateView para adicionar um novo serviço.
 
 
-class ServicesCreateView (CreateView):
+class ServicesCreateView(CreateView):
     template_name = "services/cria.html"
     model = Services
     form_class = InsereServicesForm
