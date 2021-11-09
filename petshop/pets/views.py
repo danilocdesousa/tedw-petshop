@@ -13,8 +13,8 @@ class PetsCreateView(CreateView):
     success_url = reverse_lazy("pets:lista_pets")
 
 
-# Utilizando a ListView para a listagem de serviços.
-class ServicesListView(ListView):
-    template_name = "services/lista.html"
-    model = Services
-    context_object_name = 'services'
+# Utilizando a ListView para a listagem de pets.
+class PetsListView(ListView):
+    template_name = "pets/lista.html"
+    model = Pet
+    context_object_name = 'pet'

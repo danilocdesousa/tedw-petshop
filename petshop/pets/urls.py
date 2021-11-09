@@ -1,6 +1,6 @@
 # Importação das funções definidas no arquivo views.py.
 from django.urls import path
-from pets.views import PetsCreateView, ServicesListView
+from pets.views import PetsCreateView, PetsListView
 
 app_name = 'pets'
 
@@ -10,5 +10,5 @@ urlpatterns = [
     path('cadastrar/', PetsCreateView.as_view(), name="cadastra_pets"),
 
     # GET /listar
-    path('listar/', ServicesListView.as_view(), name="lista_services"),
+    path('listar/', PetsListView.as_view(), name="lista_pets"),
 ]
