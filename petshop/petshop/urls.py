@@ -12,4 +12,7 @@ urlpatterns = [
 
     # Inclui as URLs do app 'services'.
     path('services/', include('services.urls', namespace='services')),
+
+    # Inclui as URLs do app 'pets'.
+    path('pets/', include('pets.urls', namespace='pets')),
 ]
