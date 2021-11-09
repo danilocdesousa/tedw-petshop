@@ -31,11 +31,31 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="{% url 'website:index' %}">Início</a>
-                    <a class="nav-link active" href="{% url 'website:lista_clientes' %}">Clientes</a>
-                    <a class="nav-link active" href="{% url 'pets:lista_pets' %}">Pets</a>
-                    <a class="nav-link active" href="{% url 'services:lista_services' %}">Serviços</a>
-                    <a class="nav-link active" href="#">Vendas</a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page"
+                                    href="{% url 'website:index' %}">Início</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Acesso rápido
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="nav-link active"
+                                            href="{% url 'website:lista_clientes' %}">Clientes</a></li>
+                                    <li><a class="nav-link active" href="{% url 'pets:lista_pets' %}">Pets</a></li>
+                                    <li><a class="nav-link active"
+                                            href="{% url 'services:lista_services' %}">Serviços</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="nav-link active" href="#">Vendas</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
