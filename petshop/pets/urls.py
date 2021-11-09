@@ -1,6 +1,6 @@
 # Importação das funções definidas no arquivo views.py.
 from django.urls import path
-from pets.views import PetsCreateView, PetsListView, PetsUpdateView, PetDeleteView
+from pets.views import PetsCreateView, PetsListView, PetsUpdateView, PetsDeleteView
 
 app_name = 'pets'
 
@@ -18,5 +18,5 @@ urlpatterns = [
 
     # Para deletar o objeto, o procedimento é parecido com o de atualização.
     # GET/POST /pets (pets está definido em url.py petshop)/excluir/{pk do objeto}
-    path('excluir/<pk>', PetDeleteView.as_view(), name="deleta_pets"),
+    path('excluir/<pk>', PetsDeleteView.as_view(), name="deleta_pets"),
 ]

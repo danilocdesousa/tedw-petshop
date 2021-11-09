@@ -17,7 +17,7 @@ class PetsCreateView(CreateView):
 class PetsListView(ListView):
     template_name = "pets/lista.html"
     model = Pet
-    context_object_name = 'pet'
+    context_object_name = 'pets'
 
 
 # Utilizando a UpdateView para a atualização de pets.
@@ -31,7 +31,7 @@ class PetsUpdateView(UpdateView):
 
 
 # Utilizando a DeleteView para deletar um pet.
-class PetDeleteView(DeleteView):
+class PetsDeleteView(DeleteView):
     template_name = "pets/exclui.html"
     model = Pet
     context_object_name = 'pets'

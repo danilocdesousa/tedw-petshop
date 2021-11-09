@@ -1,0 +1,65 @@
+<!-- Aqui terá um objeto chamado 'pets' contendo todos os pets disponíveis para iteração. -->
+<!-- Estender do template base -->
+{% extends "website/_layouts/base.html" %}
+
+{% block title %}Lista de Pets{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <div class="card bg-light border-0 mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Lista de pets</h5>
+                    <p class="card-text mb-4">Quadro atualizado de pets cadastrados.</p>
+
+                    {% if pets|length > 0 %}
+                    <table class="table table-borderless">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Espécie</th>
+                                <th scope="col">Raça</th>
+                                <th scope="col">Sexo</th>
+                                <!-- <th scope="col">Notas</th> -->
+                                <th scope="col">Cliente</th>
+                                <th scope="col" class="text-end">Opções</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pets in pets %}
+                            <tr>
+                                <td>{{ pets.nome }}</td>
+                                <td>{{ pets.especie }}</td>
+                                <td>{{ pets.raca }}</td>
+                                <td>{{ pets.sexo }}</td>
+                                <!-- <td>{{ pets.notas }}</td> -->
+                                <td>{{ pets.cliente }}</td>
+
+                                <td class="text-end">
+                                    <a href="{% url 'pets:atualiza_pets' pk=pets.id %}">
+                                        <i class="link-success fas fa-user-edit"></i></a>
+                                    <a href="{% url 'pets:deleta_pets' pk=pets.id %}">
+                                        <i class="ms-2 link-danger fas fa-user-minus"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="text-center mt-5 mb-5 jumbotron">
+                        <h5>Sem pets registrados ainda.</h5>
+                    </div>
+                    {% endif %}
+                    <div class="text-start">
+                        <a href="{% url 'pets:cadastra_pets' %}" class="btn btn-secondary"><i
+                                class="fas fa-plus me-2"></i>NOVO</a>
+                        <a href="{% url 'website:index' %}"
+                            class="btn btn-link text-decoration-none text-secondary">INÍCIO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
