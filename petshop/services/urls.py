@@ -14,7 +14,7 @@ urlpatterns = [
 
     # Para atualizar o objeto, devemos buscá-lo via 'id' ou 'slug'. Também pode ser atualizado através do método get_object().
     # GET/POST /services (services está definido em url.py petshop)/{pk do objeto}
-    path('atualizar/<pk>', ServicesUpdateView.as_view(), name="atualiza_services"),
+    path('<pk>', ServicesUpdateView.as_view(), name="atualiza_services"),
 
     # Para deletar o objeto, o procedimento é parecido com o de atualização.
     # GET/POST /services (services está definido em url.py petshop)/excluir/{pk do objeto}
