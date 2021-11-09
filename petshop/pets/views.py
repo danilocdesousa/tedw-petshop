@@ -19,11 +19,20 @@ class PetsListView(ListView):
     model = Pet
     context_object_name = 'pet'
 
+
 # Utilizando a UpdateView para a atualização de pets.
 class PetsUpdateView(UpdateView):
     template_name = "pets/atualiza.html"
     model = Pet
     # fields = ['nome', 'especie', 'raca', 'sexo', 'notas', 'cliente']
     fields = '__all__'
+    context_object_name = 'pets'
+    success_url = reverse_lazy("pets:lista_pets")
+
+
+# Utilizando a DeleteView para deletar um pet.
+class PetDeleteView(DeleteView):
+    template_name = "pets/exclui.html"
+    model = Pet
     context_object_name = 'pets'
     success_url = reverse_lazy("pets:lista_pets")
