@@ -1,4 +1,4 @@
-<!-- Aqui terá um objeto chamado 'clientes' contendo todos os clientes disponível para iteração. -->
+<!-- Aqui terá um objeto chamado 'clientes' contendo todos os clientes disponíveis para iteração. -->
 <!-- Estender do template base -->
 {% extends "website/_layouts/base.html" %}
 
@@ -7,7 +7,7 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
             <div class="card bg-light border-0 mb-3">
                 <div class="card-body text-dark">
                     <h5 class="card-title">Lista de clientes</h5>
@@ -18,23 +18,23 @@
                         <thead class="table-success">
                             <tr>
                                 <th scope="col">Nome</th>
-                                <th scope="col">CPF</th>
+                                <!-- <th scope="col">CPF</th> -->
                                 <!-- <th scope="col">Email</th> -->
                                 <th scope="col">Telefone</th>
                                 <th scope="col">Endereço</th>
-                                <th scope="col" class="text-center"></th>
+                                <th scope="col" class="text-end">Opções</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for clientes in clientes %}
                             <tr>
                                 <td>{{ clientes.nome }}</td>
-                                <td>{{ clientes.cpf }}</td>
+                                <!-- <td>{{ clientes.cpf }}</td> -->
                                 <!-- <td>{{ clientes.email }}</td> -->
                                 <td>{{ clientes.telefone }}</td>
                                 <td>{{ clientes.endereco }}</td>
 
-                                <td class="text-center">
+                                <td class="text-end">
                                     <a href="{% url 'website:atualiza_clientes' pk=clientes.id %}">
                                         <i class="link-success fas fa-user-edit"></i></a>
                                     <a href="{% url 'website:deleta_clientes' pk=clientes.id %}">
@@ -51,7 +51,7 @@
                     {% endif %}
                     <div class="text-start">
                         <a href="{% url 'website:cadastra_clientes' %}" class="btn btn-secondary"><i class="fas fa-plus me-2"></i>NOVO</a>
-                        <a href="{% url 'website:index' %}" class="btn btn-link text-decoration-none text-secondary">HOME</a>
+                        <a href="{% url 'website:index' %}" class="btn btn-link text-decoration-none text-secondary">INÍCIO</a>
                     </div>
                 </div>
             </div>

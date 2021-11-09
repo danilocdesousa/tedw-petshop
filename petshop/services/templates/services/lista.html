@@ -1,1 +1,57 @@
-<h1>Listar</h1>
+<!-- Aqui terá um objeto chamado 'services' contendo todos os serviços disponíveis para iteração. -->
+<!-- Estender do template base -->
+{% extends "website/_layouts/base.html" %}
+
+{% block title %}Lista de Serviços{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <div class="card bg-light border-0 mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">Lista de serviços</h5>
+                    <p class="card-text mb-4">Quadro atualizado de serviços disponíveis.</p>
+
+                    {% if services|length > 0 %}
+                    <table class="table table-borderless">
+                        <thead class="table-success">
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Preço</th>
+                                <th scope="col" class="text-end">Opções</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for services in services %}
+                            <tr>
+                                <td>{{ services.nome }}</td>
+                                <td>{{ services.preco }}</td>
+
+                                <td class="text-end">
+                                    <a href="{% url 'services:atualiza_services' pk=services.id %}">
+                                        <i class="link-success fas fa-user-edit"></i></a>
+                                    <a href="{% url 'services:deleta_services' pk=services.id %}">
+                                        <i class="ms-2 link-danger fas fa-user-minus"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="text-center mt-5 mb-5 jumbotron">
+                        <h5>Sem serviços disponíveis ainda.</h5>
+                    </div>
+                    {% endif %}
+                    <div class="text-start">
+                        <a href="{% url 'services:cadastra_services' %}" class="btn btn-secondary"><i
+                                class="fas fa-plus me-2"></i>NOVO</a>
+                        <a href="{% url 'website:index' %}"
+                            class="btn btn-link text-decoration-none text-secondary">INÍCIO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
