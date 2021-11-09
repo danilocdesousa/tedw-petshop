@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'petshop',
     'website',
     'services',
+    'pets',
     'widget_tweaks',
 ]
 
