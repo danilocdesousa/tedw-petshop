@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Clientes(models.Model):
     nome = models.CharField(
         max_length=255,
@@ -32,6 +34,11 @@ class Clientes(models.Model):
         blank=False
     )
 
+# Mostrar o nome do cliente no Django administration em vez de mostrar o ID.
+    def __str__(self):
+        return self.nome
+
+
 class Services(models.Model):
     nome = models.CharField(
         max_length=255,
@@ -45,7 +52,3 @@ class Services(models.Model):
         null=False,
         blank=False
     )
-
-# Mostrar o nome do registro no Django administration em vez de mostrar o ID.
-    def __str__(self):
-        return self.nome
