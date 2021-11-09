@@ -1,5 +1,5 @@
 from petshop.models import Services
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 from django.urls import reverse_lazy
 from services.forms import InsereServicesForm
 
@@ -20,3 +20,12 @@ class ServicesListView(ListView):
     template_name = "services/lista.html"
     model = Services
     context_object_name = 'services'
+
+
+# Utilizando a UpdateView para a atualização de serviços.
+class ServicesUpdateView(UpdateView):
+    template_name = "services/atualiza.html"
+    model = Services
+    fields = '__all__'  # fields = ['nome', 'preco']
+    context_object_name = 'services'
+    success_url = reverse_lazy("services:lista_services")
