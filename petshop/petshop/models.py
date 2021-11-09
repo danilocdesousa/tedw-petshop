@@ -52,3 +52,7 @@ class Services(models.Model):
         null=False,
         blank=False
     )
+
+# Mostrar o nome do cliente no Django administration em vez de mostrar o ID.
+    def __str__(self):
+        return self.nome
