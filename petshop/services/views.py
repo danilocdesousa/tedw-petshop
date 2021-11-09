@@ -32,6 +32,6 @@ class ServicesUpdateView(UpdateView):
 # Utilizando a DeleteView para deletar um serviço.
 class ServicesDeleteView(DeleteView):
     template_name = "services/exclui.html"
-    model = Services()
+    model = Services
     context_object_name = 'services'
     success_url = reverse_lazy("services:lista_services")
