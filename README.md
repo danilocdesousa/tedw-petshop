@@ -2,14 +2,23 @@
 
 ### Para rodar o projeto
 
-Instalar as dependências:
+Instalar o django:
 ```
-pip install -r requirements.txt
+pip install django
+```
+Instalar o django-widget-tweaks:
+```
+pip install django-widget-tweaks
+```
+
+Instalar o django-crispy-forms:
+```
+pip install django-crispy-forms
 ```
 
 Criar as Migrações:
 ```
-python manage.py makemigrations
+python manage.py makemigrations petshop
 ```
 
 Efetivar as Migrações no banco de dados:
