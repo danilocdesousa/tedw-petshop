@@ -3,6 +3,8 @@
 
 {% load widget_tweaks %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Cadastro de Pets{% endblock %}
 
 {% block content %}
@@ -19,7 +21,8 @@
                         <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
                         {% csrf_token %}
 
-                        {{ form.as_p }}
+                        <!-- {{ form.as_p }} -->
+                        {{ form|crispy }}
 
                         <div class="text-start mt-4">
                             <button class="btn btn-secondary"><i class="fas fa-save me-2"></i>SALVAR</button>
