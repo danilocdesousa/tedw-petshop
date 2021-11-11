@@ -1,23 +1,23 @@
-# tedw-petshop
+## tedw-petshop
 
-## Para rodar o projeto
+### Para rodar o projeto
 
-###  Instalar as dependências
+Instalar as dependências:
 ```
 pip install -r requirements.txt
 ```
 
-### Criar as Migrações
+Criar as Migrações:
 ```
 python manage.py makemigrations
 ```
 
-### Efetivar as Migrações no banco de dados
+Efetivar as Migrações no banco de dados:
 ```
 python manage.py migrate
 ```
 
-### Executar o servidor de testes do Django
+Executar o servidor de testes do Django:
 ```
 python manage.py runserver
 ```
