@@ -24,41 +24,35 @@
 <body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'website:index' %}">PETSHOP</a>
+            <a class="navbar-brand" href="{% url 'website:index' %}">MEU PETSHOP</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page"
-                                    href="{% url 'website:index' %}">Início</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Acesso rápido
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="nav-link active"
-                                            href="{% url 'website:lista_clientes' %}">Clientes</a></li>
-                                    <li><a class="nav-link active" href="{% url 'pets:lista_pets' %}">Pets</a></li>
-                                    <li><a class="nav-link active"
-                                            href="{% url 'services:lista_services' %}">Serviços</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="nav-link active" href="#">Vendas</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    {% if user.is_authenticated %}
+                    <a class="nav-link active" aria-current="page" href="{% url 'website:index' %}">Início</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Todos os registros
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="{% url 'website:lista_clientes' %}">Clientes</a></li>
+                              <li><a class="dropdown-item" href="{% url 'pets:lista_pets' %}">Pets</a></li>
+                              <li><a class="dropdown-item" href="{% url 'services:lista_services' %}">Serviços</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#">Vendas</a></li>
+                            </ul>
+                          </li>
+                    {% else %}
+                    <a class="nav-link" href="/accounts/login">Entrar</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <a class="nav-link" href="/accounts/logout">Sair</a>
+                    {% endif %}
                 </div>
             </div>
-        </div>
     </nav>
 
     {% block content %}

@@ -16,6 +16,6 @@ urlpatterns = [
     # Inclui as URLs do app 'pets'.
     path('pets/', include('pets.urls', namespace='pets')),
 
-    #Inclui as URLs de 'login'
+    # Inclui as URLs de 'login'
     path('accounts/', include('django.contrib.auth.urls')),
 ]

@@ -21,5 +21,5 @@ urlpatterns = [
     
     # Para deletar o objeto, o procedimento é parecido com o de atualização.
     # GET/POST /cliente/excluir/{pk do objeto}
-    path('clientes/excluir/<pk>',ClientesDeleteView.as_view(), name="deleta_clientes"),
+    path('clientes/excluir/<pk>', ClientesDeleteView.as_view(), name="deleta_clientes"),
 ]
