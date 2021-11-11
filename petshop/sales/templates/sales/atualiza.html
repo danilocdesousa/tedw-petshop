@@ -5,7 +5,7 @@
 
 {% load crispy_forms_tags %}
 
-{% block title %}Cadastro de Pets{% endblock %}
+{% block title %}Atualização de Vendas{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
@@ -13,9 +13,8 @@
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="card bg-light border-0 mb-3">
                 <div class="card-body text-dark">
-                    <h5 class="card-title">Registrar pet</h5>
-                    <p class="card-text mb-4">Observe que, para registrar um novo animal de estimação, o cliente deve
-                        estar previamente registrado.</p>
+                    <h5 class="card-title">Atualizar venda</h5>
+                    <p class="card-text mb-4">[...]</p>
 
                     <form method="post" class="row g-3">
                         <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
@@ -26,7 +25,7 @@
 
                         <div class="text-start mt-4">
                             <button class="btn btn-secondary"><i class="fas fa-save me-2"></i>SALVAR</button>
-                            <a href="{% url 'website:index' %}"
+                            <a href="{% url 'sales:lista_sales' %}"
                                 class="btn btn-link text-decoration-none text-secondary">CANCELAR</a>
                         </div>
                     </form>

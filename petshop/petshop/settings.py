@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'website',
     'services',
     'pets',
+    'sales',
     'widget_tweaks',
     'crispy_forms',
 ]

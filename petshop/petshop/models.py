@@ -67,7 +67,7 @@ class Pet(models.Model):
     SEX = (
         ('F', 'Fêmea'),
         ('M', 'Macho'),
-        ('I', 'Indefinido')
+        ('N', 'Não informado')
     )
 
     nome = models.CharField(
@@ -104,3 +104,28 @@ class Pet(models.Model):
     # Mostrar o nome do cliente no Django administration em vez de mostrar o ID. Ou seja, o método str determina como o objeto vai ser impresso.
     def __str__(self):
         return self.nome
+
+
+class Sales(models.Model):
+
+    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+
+    servico = models.ForeignKey(Services, on_delete=models.CASCADE)
+
+    preco = models.DecimalField(
+        max_digits=9,
+        decimal_places=2,
+        null=False,
+        blank=False
+    )
+
+    data = models.DateField()
+
+    class Meta:
+        verbose_name_plural = 'Vendas'
+
+# Mostrar o nome do cliente no Django administration em vez de mostrar o ID.
+    def __str__(self):
+        return self.cliente
