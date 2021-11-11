@@ -3,6 +3,8 @@
 
 {% load widget_tweaks %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Cadastro de Serviços{% endblock %}
 
 {% block content %}
@@ -11,24 +13,15 @@
         <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
             <div class="card bg-light border-0 mb-3">
                 <div class="card-body text-dark">
-                    <h5 class="card-title">Atualização do serviço</h5>
-                    <p class="card-text mb-4">Corrigir ou atualizar os dados de um serviço oferecido.</p>
+                    <h5 class="card-title">Registrar serviço</h5>
+                    <p class="card-text mb-4">Use os campos abaixo para cadastrar um novo serviço que será oferecido.</p>
 
                     <form method="post" class="row g-3">
                         <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
                         {% csrf_token %}
 
-                        <!-- Nome -->
-                        <div class="col-md-8">
-                            <label for="inputName" class="form-label">Nome</label>
-                            {% render_field form.nome class+="form-control" %}
-                        </div>
-
-                        <!-- Preço -->
-                        <div class="col-md-4">
-                            <label for="inputPreco" class="form-label">Preço</label>
-                            {% render_field form.preco class+="form-control" %}
-                        </div>
+                        <!-- {{ form.as_p }} -->
+                        {{ form|crispy }}
 
                         <div class="text-start mt-4">
                             <button class="btn btn-secondary"><i class="fas fa-save me-2"></i>SALVAR</button>

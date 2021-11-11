@@ -3,6 +3,8 @@
 
 {% load widget_tweaks %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}Cadastro de Serviços{% endblock %}
 
 {% block content %}
@@ -18,17 +20,8 @@
                         <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
                         {% csrf_token %}
 
-                        <!-- Nome -->
-                        <div class="col-md-8">
-                            <label for="inputName" class="form-label">Nome</label>
-                            {% render_field form.nome class+="form-control" %}
-                        </div>
-
-                        <!-- Preço -->
-                        <div class="col-md-4">
-                            <label for="inputPreco" class="form-label">Preço</label>
-                            {% render_field form.preco class+="form-control" %}
-                        </div>
+                        <!-- {{ form.as_p }} -->
+                        {{ form|crispy }}
 
                         <div class="text-start mt-4">
                             <button class="btn btn-secondary"><i class="fas fa-save me-2"></i>SALVAR</button>

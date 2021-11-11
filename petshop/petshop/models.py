@@ -55,6 +55,8 @@ class Services(models.Model):
         blank=False
     )
 
+    detalhes = models.TextField()
+
     class Meta:
         verbose_name_plural = 'Serviços'
 

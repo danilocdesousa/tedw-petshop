@@ -9,5 +9,6 @@ class InsereServicesForm(forms.ModelForm):
         # Os campos que estarão no formulário serão apresentados através do atributo fields.
         fields = [
             'nome',
-            'preco'
+            'preco',
+            'detalhes'
         ]
