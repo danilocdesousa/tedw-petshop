@@ -33,6 +33,9 @@ class Clientes(models.Model):
         blank=False
     )
 
+    class Meta:
+        verbose_name_plural = 'Clientes'
+
 # Mostrar o nome do cliente no Django administration em vez de mostrar o ID.
     def __str__(self):
         return self.nome
@@ -51,6 +54,9 @@ class Services(models.Model):
         null=False,
         blank=False
     )
+
+    class Meta:
+        verbose_name_plural = 'Serviços'
 
 # Mostrar o nome do cliente no Django administration em vez de mostrar o ID.
     def __str__(self):
@@ -91,6 +97,9 @@ class Pet(models.Model):
     notas = models.TextField()
 
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Pets'
 
     # Mostrar o nome do cliente no Django administration em vez de mostrar o ID. Ou seja, o método str determina como o objeto vai ser impresso.
     def __str__(self):
