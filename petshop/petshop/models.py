@@ -6,31 +6,35 @@ class Clientes(models.Model):
     nome = models.CharField(
         max_length=255,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Nome'
     )
 
     cpf = models.CharField(
         max_length=14,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='CPF'
     )
 
     telefone = models.CharField(
         max_length=20,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Telefone'
     )
 
     email = models.CharField(
         max_length=100,
-        null=False,
-        blank=False
+        blank=True,
+        verbose_name='Email'
     )
 
     endereco = models.CharField(
         max_length=100,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Endereço'
     )
 
     class Meta:
@@ -45,17 +49,19 @@ class Services(models.Model):
     nome = models.CharField(
         max_length=255,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Nome'
     )
 
     preco = models.DecimalField(
         max_digits=9,
         decimal_places=2,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Preço'
     )
 
-    detalhes = models.TextField()
+    detalhes = models.TextField(blank=True, verbose_name='Observações')
 
     class Meta:
         verbose_name_plural = 'Serviços'
@@ -75,30 +81,34 @@ class Pet(models.Model):
     nome = models.CharField(
         max_length=255,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Nome'
     )
 
     especie = models.CharField(
         max_length=255,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Espécie/tipo'
     )
 
     raca = models.CharField(
         max_length=255,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Raça'
     )
 
     sexo = models.CharField(
         max_length=20,
         # Usar o select.
         choices=SEX,  # Constante SEX.
+        verbose_name='Sexo'
     )
 
-    notas = models.TextField()
+    notas = models.TextField(blank=True, verbose_name='Observações')
 
-    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, verbose_name='Cliente')
 
     class Meta:
         verbose_name_plural = 'Pets'
@@ -110,20 +120,21 @@ class Pet(models.Model):
 
 class Sales(models.Model):
 
-    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, verbose_name='Cliente')
 
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, verbose_name='Pet')
 
-    servico = models.ForeignKey(Services, on_delete=models.CASCADE)
+    servico = models.ForeignKey(Services, on_delete=models.CASCADE, verbose_name='Serviço')
 
     preco = models.DecimalField(
         max_digits=9,
         decimal_places=2,
         null=False,
-        blank=False
+        blank=False,
+        verbose_name='Preço'
     )
 
-    data = models.DateField()
+    data = models.DateField(verbose_name='Data da venda')
 
     class Meta:
         verbose_name_plural = 'Vendas'
