@@ -14,7 +14,7 @@
             <div class="card bg-light border-0 mb-3">
                 <div class="card-body text-dark">
                     <h5 class="card-title">Novo usuário</h5>
-                    <p class="card-text mb-4">Crie sua conta</p>
+                    <p class="card-text mb-4">Crie sua conta para ter acesso à plataforma.</p>
                     <form method="post" class="row g-3">
                         <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
 
@@ -29,6 +29,9 @@
                                     class="fas fa-save me-2"></i>REGISTRAR</button>
                         </div>
                     </form>
+
+                    <p class="text-center mt-3 mb-3">Já possui uma conta? <a href="/accounts/login">Clique aqui</a></p>
+
                 </div>
             </div>
         </div>

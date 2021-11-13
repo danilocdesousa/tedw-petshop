@@ -16,8 +16,11 @@ urlpatterns = [
     # Inclui as URLs do app 'pets'.
     path('pets/', include('pets.urls', namespace='pets')),
 
-        # Inclui as URLs do app 'pets'.
+        # Inclui as URLs do app 'sales'.
     path('sales/', include('sales.urls', namespace='sales')),
+
+    # Inclui as URLs do app 'accounts'
+    path('accounts/', include('accounts.urls')),
 
     # Inclui as URLs de 'login'
     path('accounts/', include('django.contrib.auth.urls')),
