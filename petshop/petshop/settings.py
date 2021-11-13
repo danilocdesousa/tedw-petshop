@@ -43,8 +43,10 @@ INSTALLED_APPS = [
     'services',
     'pets',
     'sales',
+    'accounts',
     'widget_tweaks',
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
