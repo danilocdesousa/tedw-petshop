@@ -134,7 +134,7 @@ class Sales(models.Model):
         verbose_name='Preço'
     )
 
-    data = models.DateField(verbose_name='Data da venda')
+    data = models.DateField(verbose_name='Data (dd/mm/aaaa)')
 
     class Meta:
         verbose_name_plural = 'Vendas'
