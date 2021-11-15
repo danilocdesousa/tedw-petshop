@@ -14,7 +14,8 @@ class Clientes(models.Model):
         max_length=14,
         null=False,
         blank=False,
-        verbose_name='CPF'
+        verbose_name='CPF',
+        unique=True
     )
 
     telefone = models.CharField(
@@ -26,7 +27,6 @@ class Clientes(models.Model):
 
     email = models.CharField(
         max_length=100,
-        blank=True,
         verbose_name='Email'
     )
 
@@ -61,7 +61,7 @@ class Services(models.Model):
         verbose_name='Preço'
     )
 
-    detalhes = models.TextField(blank=True, verbose_name='Observações')
+    detalhes = models.TextField(verbose_name='Observações')
 
     class Meta:
         verbose_name_plural = 'Serviços'
@@ -94,8 +94,6 @@ class Pet(models.Model):
 
     raca = models.CharField(
         max_length=255,
-        null=False,
-        blank=False,
         verbose_name='Raça'
     )
 
@@ -108,7 +106,7 @@ class Pet(models.Model):
 
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, verbose_name='Cliente')
 
-    notas = models.TextField(blank=True, verbose_name='Observações')
+    notas = models.TextField(verbose_name='Observações')
 
     class Meta:
         verbose_name_plural = 'Pets'
