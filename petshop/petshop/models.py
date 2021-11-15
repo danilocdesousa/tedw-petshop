@@ -106,9 +106,9 @@ class Pet(models.Model):
         verbose_name='Sexo'
     )
 
-    notas = models.TextField(blank=True, verbose_name='Observações')
-
     cliente = models.ForeignKey(Clientes, on_delete=models.CASCADE, verbose_name='Cliente')
+
+    notas = models.TextField(blank=True, verbose_name='Observações')
 
     class Meta:
         verbose_name_plural = 'Pets'
@@ -134,7 +134,7 @@ class Sales(models.Model):
         verbose_name='Preço'
     )
 
-    data = models.DateField(verbose_name='Data (dd/mm/aaaa)')
+    data = models.DateField(verbose_name='Data da venda')
 
     class Meta:
         verbose_name_plural = 'Vendas'
