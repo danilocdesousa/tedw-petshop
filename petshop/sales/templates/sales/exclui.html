@@ -1,0 +1,29 @@
+<!-- Estender do template base -->
+{% extends "website/_layouts/base.html" %}
+
+{% block title %}Deletar Vendas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+      <div class="card bg-light border-0 mb-3">
+        <div class="card-body text-dark">
+          <h5 class="card-title">Exclusão de venda</h5>
+          <p class="card-text mb-4">Você tem certeza de que quer excluir o registro da venda feita para <strong>{{ sales.cliente }}</strong>? A exclusão será irreversível.</p>
+
+          <form method="post">
+            <!-- A tag do Django {% csrf_token %} está relacionada à proteção que o Django provê ao CSRF - Cross Site Request Forgery (um tipo de ataque malicioso) -->
+            {% csrf_token %}
+
+            <div class="text-start">
+              <button class="btn btn-danger"><i class="fas fa-trash-alt me-2"></i>EXCLUIR</button>
+              <a href="{% url 'sales:lista_sales' %}" class="btn btn-link text-decoration-none text-secondary">CANCELAR</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
